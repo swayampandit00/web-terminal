@@ -1,1 +1,141 @@
-h
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevilShell Web Interface</title>
+    <style>
+        body {
+            font-family: 'Courier New', monospace;
+            background-color: #000;
+            color: #00ff00;
+            margin: 0;
+            padding: 20px;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .terminal {
+            flex: 1;
+            background-color: #111;
+            border: 1px solid #00ff00;
+            border-radius: 8px;
+            padding: 20px;
+            overflow-y: auto;
+            white-space: pre-wrap;
+            font-size: 14px;
+            line-height: 1.4;
+        }
+        .logout-btn {
+            background-color: #ff0000;
+            color: #fff;
+        }
+        .logout-btn:hover {
+            background-color: #cc0000;
+        }
+        .terminal-input {
+            background-color: #111;
+            border: none;
+            color: #00ff00;
+            font-family: inherit;
+            font-size: 14px;
+            outline: none;
+            padding: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>DevilShell Web Interface</h1>
+        <a href="{{ url_for('logout') }}"><button class="logout-btn">Logout</button></a>
+    </div>
+
+    <div class="terminal" id="terminal">
+Welcome to DevilShell Web Interface!
+Type 'help' for available commands.
+    </div>
+
+    <script>
+        const terminal = document.getElementById('terminal');
+        const username = '{{ session.username }}';
+
+        function createNewPrompt() {
+            const promptDiv = document.createElement('div');
+            promptDiv.style.display = 'flex';
+            promptDiv.style.alignItems = 'center';
+            
+            const promptText = document.createTextNode(username + '@devilshell:~$ ');
+            promptDiv.appendChild(promptText);
+            
+            const input = document.createElement('input');
+            input.type = 'text';
+            input.class = 'terminal-input';
+            input.style.backgroundColor = '#111';
+            input.style.border = 'none';
+            input.style.color = '#00ff00';
+            input.style.fontFamily = 'inherit';
+            input.style.fontSize = '14px';
+            input.style.outline = 'none';
+            input.style.padding = '0';
+            input.style.flex = '1';
+            input.style.marginLeft = '0';
+            input.autocomplete = 'off';
+            
+            input.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                    const command = input.value.trim();
+                    if (command) {
+                        // Replace input with command text
+                        promptDiv.removeChild(input);
+                        promptDiv.appendChild(document.createTextNode(command));
+                        
+                        // Send command to server
+                        fetch('/execute', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/x-www-form-urlencoded',
+                            },
+                            body: 'command=' + encodeURIComponent(command)
+                        })
+                        .then(response => response.text())
+                        .then(output => {
+                            // Create line for output
+                            const outputDiv = document.createElement('div');
+                            outputDiv.textContent = output;
+                            terminal.appendChild(outputDiv);
+                            
+                            // Create new prompt
+                            createNewPrompt();
+                            terminal.scrollTop = terminal.scrollHeight;
+                        })
+                        .catch(error => {
+                            const errorDiv = document.createElement('div');
+                            errorDiv.textContent = 'Error: ' + error;
+                            terminal.appendChild(errorDiv);
+                            
+                            // Create new prompt
+                            createNewPrompt();
+                            terminal.scrollTop = terminal.scrollHeight;
+                        });
+                    }
+                }
+            });
+            
+            promptDiv.appendChild(input);
+            terminal.appendChild(promptDiv);
+            input.focus();
+        }
+
+        // Create initial prompt
+        createNewPrompt();
+    </script>
+</body>
+</html>
