@@ -1,0 +1,12 @@
+{
+  "admin": {
+    "salt": "fTlUEiVPl4Bu6L3KyZ3mkA==",
+    "hash": "932dd21841f8cf0fcda444eb78f9b7fbdeb4e482fdf8420ee9bcf12dc54cc4fb",
+    "theme": "X"
+  },
+  "guest": {
+    "salt": "hHpz8_oi1UWtjdY9BmLjCw==",
+    "hash": "5b47b98a5eca94a7b7c62b4a4d470b204fd01b94a1cad063cacd2360e5e1ed03",
+    "theme": "X"
+  }
+}

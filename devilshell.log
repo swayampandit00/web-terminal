@@ -1,0 +1,85 @@
+2025-12-05T23:42:07.913302 | admin | ls
+2025-12-05T23:42:13.919403 | admin | cd
+2025-12-05T23:42:41.547615 | admin | cd plugins
+2025-12-05T23:55:29.652222 | admin | ls
+2025-12-05T23:55:33.942086 | admin | dir
+2025-12-05T23:55:44.150935 | admin | cls
+2025-12-05T23:56:04.548449 | admin | cd plugins
+2025-12-06T00:05:41.650400 | admin | help
+2025-12-06T00:19:58.847394 | admin | whoami
+2025-12-06T00:20:07.234451 | admin | pwd
+2025-12-06T00:25:26.823316 | admin | ifconfig
+2025-12-06T00:26:14.061372 | admin | help
+2025-12-06T00:28:28.395970 | admin | ifconfig
+2025-12-06T00:29:16.155378 | admin | ifconfig
+2025-12-06T00:29:24.150857 | admin | ping
+2025-12-06T00:29:35.442710 | admin | help
+2025-12-06T00:30:50.573878 | admin | ip
+2025-12-06T00:31:05.632963 | admin | ifconfig
+2025-12-06T00:31:12.246060 | admin | iwconfig
+2025-12-06T00:31:23.182505 | admin | add swayam
+2025-12-06T10:00:34.220043 | admin | sudo
+2025-12-06T10:00:43.732374 | admin | sudosu
+2025-12-06T10:00:54.025778 | admin | sudo su
+2025-12-06T10:01:02.753559 | admin | help
+2025-12-06T10:01:43.615994 | admin | ifconfig
+2025-12-06T10:03:25.197327 | admin | ifconfig
+2025-12-06T10:20:51.687816 | admin | sudo
+2025-12-06T10:20:57.888633 | admin | sudo -su
+2025-12-06T10:22:11.471325 | admin | logout
+2025-12-06T10:22:23.481944 | admin | exit
+2025-12-06T10:22:55.521272 | guest | sudo su
+2025-12-06T10:23:32.474814 | guest | sudo -su
+2025-12-06T10:23:55.041330 | admin | sudo -su
+2025-12-06T10:24:02.898528 | admin | logout
+2025-12-06T10:30:29.589478 | admin | calc
+2025-12-06T10:32:22.149782 | admin | plugins list
+2025-12-06T10:32:36.277836 | admin | plugin list
+2025-12-06T10:33:39.143412 | admin | /.devilshellshell_history
+2025-12-06T10:34:08.052430 | admin | ~/.devilshell_history
+2025-12-06T10:34:29.522135 | admin | plugins/
+2025-12-06T10:44:53.785570 | admin | help
+2025-12-06T10:45:34.009029 | admin | apt update
+2025-12-06T10:45:48.619065 | admin | apt get update
+2025-12-06T10:45:54.958367 | admin | apt get upgrade
+2025-12-06T10:46:06.872608 | admin | sudo apt get upgrade
+2025-12-06T10:46:33.926773 | admin | tool-install git
+2025-12-06T11:12:15.880978 | admin | help
+2025-12-06T11:16:49.165465 | admin | help
+2025-12-06T11:17:56.876735 | admin | natstate
+2025-12-06T11:18:29.546113 | admin | netstat
+2025-12-06T11:24:51.053004 | admin | help
+2025-12-06T11:26:33.788406 | admin | nmap
+2025-12-06T11:26:42.693468 | admin | which
+2025-12-06T11:26:59.779501 | admin | vim
+2025-12-06T11:27:13.619970 | admin | touch
+2025-12-06T11:27:35.095826 | admin | status
+2025-12-07T12:29:48.586088 | admin | exit
+2025-12-07T12:30:21.855249 | admin | exit
+2025-12-07T12:30:53.963385 | guest | nmap
+2025-12-07T12:36:30.626908 | guest | banner
+2025-12-07T12:36:42.608701 | guest | exit
+2025-12-07T12:41:53.357731 | guest | clear
+2025-12-07T12:45:00.690323 | guest | & C:/Python314/python.exe c:/Users/swaya/Desktop/terminal/devilshell_v5.py
+2025-12-07T12:47:00.448419 | guest | nmap
+2025-12-07T12:47:04.363688 | guest | ip
+2025-12-07T12:50:59.276165 | admin | msfconsole
+2025-12-07T12:51:21.847356 | admin | aircrack -ng
+2025-12-07T12:51:34.980696 | admin | iwconfig
+2025-12-07T12:51:42.371818 | admin | ifconfig
+2025-12-07T12:52:06.127920 | admin | nmap
+2025-12-07T12:55:30.413913 | admin | nmap
+2025-12-07T12:58:33.957325 | admin | ls
+2025-12-07T12:58:50.899548 | admin | python devilshell_v5.py
+2025-12-07T18:37:00.291118 | admin | banner
+2025-12-07T18:37:05.909570 | admin | help
+2025-12-07T18:37:33.327015 | admin | theme
+2025-12-07T18:37:51.871311 | admin | theme list
+2025-12-07T18:38:10.491896 | admin | theme set Y
+2025-12-07T18:39:36.808360 | admin | theme
+2025-12-07T18:39:45.925513 | admin | theme set X
+2025-12-07T19:15:59.240343 | guest | ip
+2025-12-07T19:16:11.697754 | guest | & C:/Python314/python.exe c:/Users/swaya/Desktop/devilshell_website/app.py
+2025-12-07T19:16:29.591191 | guest | ls
+2025-12-07T19:17:30.907875 | guest | & C:/Python314/python.exe c:/Users/swaya/Desktop/devilshell_website/app.py
+2025-12-07T19:17:43.533238 | guest | python app.py
