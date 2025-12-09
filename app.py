@@ -5,7 +5,7 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from devilshell_v5 import DevilShell, verify_password
 
 app = Flask(__name__)
-app.secret_key = 'devilshell_secret_key'  # Change this in production
+app.secret_key = 'devilshell_secret_key'  # Change this in production!
 
 shell = DevilShell()
 
@@ -20,7 +20,7 @@ def login():
     if request.method == 'POST':
         username = request.form['username']
         password = request.form['password']
-        # Simple auth for demo
+        
         if username in shell.users and verify_password(password, shell.users[username]['salt'], shell.users[username]['hash']):
             session['logged_in'] = True
             session['username'] = username
@@ -29,12 +29,14 @@ def login():
             return redirect(url_for('index'))
         else:
             return render_template('login.html', error='Invalid credentials')
+            
     return render_template('login.html')
 
 @app.route('/execute', methods=['POST'])
 def execute():
     if 'logged_in' not in session:
         return redirect(url_for('login'))
+        
     cmd = request.form['command']
     output = shell.execute_single_command(cmd)
     return output
@@ -46,5 +48,7 @@ def logout():
     shell.current_user = None
     return redirect(url_for('login'))
 
-if __name__ == '__main__':
-    app.run(debug=True)
+
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port)
